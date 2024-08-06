@@ -1,0 +1,57 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  nome: String!
+  email: String!
+}
+
+type Atividade {
+  id: ID!
+  usuario: User!
+  titulo: String!
+  cor: String!
+  descricao: String!
+}
+
+type Query {
+  findAllUsers: [User!]!
+  user(id: String!): User!
+  findAllAtividade: [Atividade!]!
+  atividade(id: String!): Atividade!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(id: String!, updateUserInput: UpdateUserInput!): User!
+  removeUser(id: String!): User!
+  createAtividade(createAtividadeInput: CreateAtividadeInput!): Atividade!
+  updateAtividade(id: String!, updateAtividadeInput: UpdateAtividadeInput!): Atividade!
+  removeAtividade(id: String!): Atividade!
+}
+
+input CreateUserInput {
+  nome: String!
+  email: String!
+}
+
+input UpdateUserInput {
+  nome: String
+  email: String
+}
+
+input CreateAtividadeInput {
+  titulo: String!
+  cor: String!
+  descricao: String!
+  usuarioId: String!
+}
+
+input UpdateAtividadeInput {
+  titulo: String
+  cor: String
+  descricao: String
+  usuarioId: String
+}
